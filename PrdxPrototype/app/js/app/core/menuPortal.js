@@ -32,5 +32,8 @@ var menuPortal = {
             $(elm).parents("ul").find("li.active").removeClass("active");
             $(elm).parents("li").addClass("active");
         }
+        else {
+            $(".navbar-nav").find("li.active").removeClass("active");
+        }
      },
 }
