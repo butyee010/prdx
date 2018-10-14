@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Arapey';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arapey Regular"), local("Arapey-Regular"), url(https://fonts.gstatic.com/s/arapey/v6/UxBNFr2ZgBqbuTISOIrpmw.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+
+body {
+  background: wheat; }
+
+p {
+  color: red; }
+
+input {
+  padding: 2px; }
+
+form {
+  padding: 5px;
+  border-top: 1px;
+  border-right: 0;
+  border-bottom: 1px;
+  border-left: 0;
+  border-style: solid;
+  border-color: #d9d9d9; }
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px; }
+
+.group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 10px 10px 0px; }
+
+body {
+  font-family: Arapey;
+  -webkit-transition: background-color .5s;
+  -o-transition: background-color .5s;
+  transition: background-color .5s; }
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: Arapey;
+  font-size: 2em;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px;
+  border-left: 0px;
+  border-style: solid;
+  border-color: black; }
+
+button {
+  padding: 5px;
+  border-top: 1px;
+  border-right: 1px;
+  border-bottom: 1px;
+  border-left: 1px;
+  border-style: solid;
+  border-color: black;
+  display: block;
+  cursor: pointer;
+  margin-right: 8px;
+  background-color: #CECCCC; }
+  button:hover {
+    background-color: #E4E4E4; }
+
+#container {
+  font-family: Arapey;
+  font-size: 2em;
+  padding: 1%;
+  -webkit-transition: margin-left .5s;
+  -o-transition: margin-left .5s;
+  transition: margin-left .5s; }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fff6f6;
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding-top: 60px; }
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+
+.sidenav a:hover {
+  color: black; }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }

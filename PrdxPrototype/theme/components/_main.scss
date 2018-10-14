@@ -1,0 +1,34 @@
+.mainContent {
+    padding: 6.5rem 1rem;
+}
+
+
+.container {
+    background-color: #fff;
+    color: #35373a;
+    min-height: 100vh;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(199, 84, 84, 0.06);
+    padding: 1.3rem 0 0 0;
+}
+
+.icon-close {
+    background:transparent url("../../../app/images/close.png") bottom left no-repeat;
+    height:50px;
+    width:50px;
+    cursor: pointer;
+    float: right;
+}
+
+.icon-back {
+    background:transparent url("../../../app/images/back.png") bottom left no-repeat;
+    height:50px;
+    width:50px;
+    cursor: pointer;
+}
+
+.back-area {
+    span {
+        padding: 0px 0px 3px 32px;
+    }
+}
