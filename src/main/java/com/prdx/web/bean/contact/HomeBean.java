@@ -11,25 +11,22 @@ public class HomeBean {
 	
 	public List<CarouselBean> carouselList;
 	
+	//start block
 	public String headerRef1;
 	public String contentRef1;
+	//end block
 	
+	//start block
 	public String imgPathRef2;
 	public String imgNameRef2 = PortalConstants.IMAGE_NAME_DEFUALT;
 	public String imgHightSizeRef2 = "300px";
+	//end block
 	
+	//start block
+	public String imgPathRef3;
+	public String imgNameRef3 = PortalConstants.IMAGE_NAME_DEFUALT;
+	
+	public String headerRef3;
 	public String contentRef3;
-	
-	public String imgPathRef4;
-	public String imgNameRef4 = PortalConstants.IMAGE_NAME_DEFUALT;
-	
-	public String headerRef4;
-	public String contentRef4_1_strong;
-	public String contentRef4_1_desc;
-	
-	public String contentRef4_2_strong;
-	public String contentRef4_2_desc;
-	
-	public String contentRef4_3_strong;
-	public String contentRef4_3_desc;
+	//end block
 }

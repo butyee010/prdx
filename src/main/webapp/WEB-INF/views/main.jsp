@@ -67,9 +67,13 @@
             <div class="col-sm-8">
                 <nav class="navbar">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_ABOUT', this)">about</a>
-                        </li>
+                    	<c:if test="${not empty menuList}">
+							<c:forEach var="menu" items="${menuList}">
+		                        <li class="nav-item">
+		                            <a class="nav-link js-scroll-trigger" onclick="${menu.script}">${menu.name}</a>
+		                        </li>
+							</c:forEach>
+						</c:if>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_SERVICES', this)">services</a>
                         </li>
@@ -96,21 +100,16 @@
         <div class="page-footer">
             <div class="row content">
                 <div class="col-sm-4">
-                    Copyright © 2018, Prxd, all rights reserved.
+                    ${footerBean.labelLeft}
                 </div>
                 <div class="col-sm-8 text-right">
-                    paradise
+                    ${footerBean.labelRight}
                 </div>
             </div>
             <div class="row justify-content-center text-center content">
                     <div class="col-12 col-md-10">
-                        <div class="text-grey small mb-1">บริษัท เพียร์ พาวเวอร์ จำกัด</div>
-                        <div class="text-grey small mb-3"><a href="https://goo.gl/maps/9EMmMLZeNCE2" class="text-grey" target="_blank">อาคาร ซิลลิค เฮ้าส์ ชั้น 5 เลขที่ 1 ถนนสีลม แขวงสีลม เขตบางรัก กรุงเทพฯ 10500</a></div>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/PeerPowerThailand/" target="_blank"><i class="fa fa-facebook-square text-grey" aria-hidden="true"></i></a>
-                            <a href="https://www.linkedin.com/company/peer-power-company-limited/" target="_blank"><i class="fa fa-linkedin-square text-grey" aria-hidden="true"></i></a>
-                            <a href="https://www.youtube.com/channel/UCzCboQLQ08PMVdIZKc5RtgA" target="_blank"><i class="fa fa-youtube-play text-grey" aria-hidden="true"></i></a>
-                        </div>
+                        <div class="text-grey small mb-1">${footerBean.centerRef1}</div>
+                        <div class="text-grey small mb-3">${footerBean.centerRef2}</div>
                     </div>
                 </div>
         </div>

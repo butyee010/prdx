@@ -56,11 +56,6 @@
         <div data-u="slides">
             <div data-u="prototype" class="p" style="width:190px;height:90px;">
                 <div data-u="thumbnailtemplate" class="t"></div>
-                <!-- <svg viewbox="0 0 16000 16000" class="cv">
-                    <circle class="a" cx="8000" cy="8000" r="3238.1"></circle>
-                    <line class="a" x1="6190.5" y1="8000" x2="9809.5" y2="8000"></line>
-                    <line class="a" x1="8000" y1="9809.5" x2="8000" y2="6190.5"></line>
-                </svg> -->
             </div>
         </div>
     </div>
@@ -130,28 +125,6 @@
             /*#region responsive code begin*/
 
             var MAX_WIDTH = '980';
-
-            /* function ScaleSlider() {
-                var containerElement = jssor_1_slider.$Elmt.parentNode;
-                var containerWidth = containerElement.clientWidth;
-
-                if (containerWidth) {
-
-                    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-                    jssor_1_slider.$ScaleWidth(expectedWidth);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            } */
-
-            //ScaleSlider();
-
-            //$(window).bind("load", ScaleSlider);
-            //$(window).bind("resize", ScaleSlider);
-            //$(window).bind("orientationchange", ScaleSlider);
-            /*#endregion responsive code end*/
 
             $("#jssor_1").css("width", "100%");
             $("#jssor_1").children().first().css("top", "15%");

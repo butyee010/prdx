@@ -7,20 +7,44 @@
 <section class="home">
     <section id="carouselPrdx" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselPrdx" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselPrdx" data-slide-to="1"></li>
-            <li data-target="#carouselPrdx" data-slide-to="2"></li>
+        	<c:if test="${not empty homeBean.carouselList}">
+				<% int i = 0; 
+				   boolean frist = true;
+				%>
+				<c:forEach var="carousel" items="${homeBean.carouselList}">
+					<c:choose>
+						<c:when test="${frist}">
+							<li data-target="#carouselPrdx" data-slide-to="<%=i%>" class="active"></li>
+						</c:when>
+						<c:otherwise>
+							<li data-target="#carouselPrdx" data-slide-to="<%=i%>"></li>
+						</c:otherwise>
+						</c:choose>
+				<% frist = false;
+				   i++;
+				 %>
+				</c:forEach>
+			</c:if>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="${resources}/images/rocks.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="${resources}/images/traffic.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="${resources}/images/sky.jpg" alt="Third slide">
-            </div>
+        	<c:if test="${not empty homeBean.carouselList}">
+				<% boolean frist = true; %>
+				<c:forEach var="carousel" items="${homeBean.carouselList}">
+					<c:choose>
+						<c:when test="${frist}">
+							<div class="carousel-item active">
+				                <img class="d-block w-100" src="${carousel.imgPath}" alt="${carousel.imgName}">
+				            </div>
+						</c:when>
+						<c:otherwise>
+							<div class="carousel-item">
+				                 <img class="d-block w-100" src="${carousel.imgPath}" alt="${carousel.imgName}">
+				            </div>
+						</c:otherwise>
+						</c:choose>
+				<% frist = false; %>
+				</c:forEach>
+			</c:if>
         </div>
         <a class="carousel-control-prev" href="#carouselPrdx" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,29 +72,14 @@
     </section>
 
     <section class="row content">
-        <div class="col-sm-12">
-            <p>${contentRef3}</p>
-        </div>
-    </section>
-
-    <section class="row content">
         <div class="col-sm-6">
-            <img class="d-block w-100 img-radius" src="${imgPathRef4}"
-                alt="${imgNameRef4}">
+            <img class="d-block w-100 img-radius" src="${imgPathRef3}"
+                alt="${imgNameRef3}">
         </div>
         <div class="col-sm-6">
-            <h3 class="pb-1 mb-2 border-bottom"><span class="text-primary">${headerRef4}</span></h3>
+            <h3 class="pb-1 mb-2 border-bottom"><span class="text-primary">${headerRef3}</span></h3>
             <div class="mb-3">
-                <div class="mb-1"><strong>${contentRef4_1_strong}</strong></div>
-                <div>${contentRef4_1_desc}</div>
-            </div>
-            <div class="mb-3">
-                <div class="mb-1"><strong>${contentRef4_2_strong}</strong></div>
-                <div>${contentRef4_2_desc}</div>
-            </div>
-            <div class="mb-3">
-                <div class="mb-1"><strong>${contentRef4_3_strong}</strong></div>
-                <div>${contentRef4_3_desc}</div>
+                <div>${contentRef3}</div>
             </div>
         </div>
     </section>
