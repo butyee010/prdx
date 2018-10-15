@@ -86,7 +86,6 @@ ajaxCall = function(option) {
 	if (o.modalClose) {
 		//modals.close();
 	}
-	
 	data = $.extend(o.data, {
 		sessionKey: sessionKey
 	});
@@ -96,10 +95,10 @@ ajaxCall = function(option) {
 				data : data,
 				contentType : o.contentType,
 				beforeSend : function() {
-					//$("#mybodyload").addClass("loading");
+					openLoading();
 				},
 				complete : function() {
-					//$("#mybodyload").removeClass("loading");
+					closeLoading();
 				},
 				success : function(html) {
 					if (o.fullPageReplace) {
@@ -151,6 +150,7 @@ ajaxCall = function(option) {
 					}
 				}
 			});
+		closeLoading();
 };
 /*** Loading ***/
 function showLoading(index) {
@@ -297,4 +297,45 @@ var datepickerConfig = {
 		}
 		
 	}
+}
+
+function openModal(option){
+	var o = $.extend({
+		headerEmpty: false,
+		title: '',
+		content: '',
+		footer: '', 
+		replaceid : '',
+	}, option);
+	o.replaceid = '.modal-body';
+	ajaxCall(o);		
+	if (o.headerEmpty)
+		$("modal-header").empty();
+	$("modal-title").append(o.title);
+	$("modal-body").append(o.dataContent);
+	$("modal-footer").append(o.dataFooter);
+	$('#modal').modal();
+}     
+
+function CallJssor(opts) {
+	opts.replaceid = ".jssor-content-area";
+	ajaxCall(opts);
+	openJssor();
+}
+
+function openJssor() {
+	$("#jssor-content").css("display", "block");
+}
+
+function closeJssor() {
+	$("#jssor-content").css("display", "");
+	$("#jssor-content-area").empty();
+}
+
+function openLoading() {
+	$("#loading").fadeIn("fast");
+}
+
+function closeLoading() {
+	$("#loading").fadeOut("fast");
 }

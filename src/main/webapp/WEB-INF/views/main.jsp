@@ -30,9 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
 
-    <!-- <link rel="stylesheet" href="css/theme/bootstrap.css"> -->
-    <link rel="stylesheet" href="${resources}/css/theme/main.css">
-    <link rel="stylesheet" href="${resources}/css/theme/gallery.css">
+    <link rel="stylesheet" href="${resources}/css/theme/main.css?r=<%=random%>">
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -48,12 +46,11 @@
     <script type="text/javascript" src="resources/static/js/vendor/jquery-ui-1.12.1.js"></script>
 
     <!-- script core -->
-    <script type="text/javascript" src="${resources}/js/app/core/core.js"></script>
-    <script type="text/javascript" src="${resources}/js/app/core/menuPortal.js"></script>
-    <script type="text/javascript" src="${resources}/js/app/core/moment.js"></script>
-    <script type="text/javascript" src="${resources}/js/app/core/session.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script type="text/javascript" src="${resources}/js/app/core/core.js?r=<%=random%>"></script>
+    <script type="text/javascript" src="${resources}/js/app/core/menuPortal.js?r=<%=random%>"></script>
+    <script type="text/javascript" src="${resources}/js/app/core/moment.js?r=<%=random%>"></script>
+    <script type="text/javascript" src="${resources}/js/app/core/session.js?r=<%=random%>"></script>
+    <script type="text/javascript" src="${resources}/js/vendor/jssor.slider-27.5.0.min.js?r=<%=random%>"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdl-muJF6qgXrgLGrWXHdp5JXgXExIsrk"
         async defer></script>
@@ -71,19 +68,19 @@
                 <nav class="navbar">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_ABOUT')">about</a>
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_ABOUT', this)">about</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_SERVICES')">services</a>
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_SERVICES', this)">services</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">our works</a>
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS', this)">our works</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_GALLERY')">gallery</a>
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_GALLERY', this)">gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_CONTACT')">contact</a>
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_CONTACT', this)">contact</a>
                         </li>
                     </ul>
                 </nav>
@@ -92,67 +89,23 @@
 
         <div class="mainContent">
             <div class="container" id="container">
-                <section class="home">
-                    <section id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="${resources}/images/home/rocks.jpg" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="${resources}/images/home/traffic.jpg" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="${resources}/images/home/sky.jpg" alt="Third slide">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </section>
-                    <section class="row content">
-                        <div class="col-sm-4">
-                            <p>We are a fast growing, established company focused on delivering best-of-breed software solutions. With the strategy focusing on building clientsâ relationship as âthe partnerâ together with our robust research and certified development teams, our company offers world class professional services including software development, enterprise computing consulting and staff outsourcing.</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p>We are a fast growing, established company focused on delivering best-of-breed software solutions. With the strategy focusing on building clientsâ relationship as âthe partnerâ together with our robust research and certified development teams, our company offers world class professional services including software development, enterprise computing consulting and staff outsourcing.</p>
-                        </div>
-                    </section>
-                    <section class="row content" style="padding-top: 0">
-                        <div class="col-sm-12">
-                            <p>We are a fast growing, established company focused on delivering best-of-breed software solutions. With the strategy focusing on building clientsâ relationship as âthe partnerâ together with our robust research and certified development teams, our company offers world class professional services including software development, enterprise computing consulting and staff outsourcing.</p>
-                        </div>
-                    </section>
-                </section>
+                
             </div>
         </div>
 
         <div class="page-footer">
             <div class="row content">
                 <div class="col-sm-4">
-                    contain 1
+                    Copyright © 2018, Prxd, all rights reserved.
                 </div>
-                <div class="col-sm-4">
-                    contain 2
-                </div>
-                <div class="col-sm-4">
-                    contain 3
+                <div class="col-sm-8 text-right">
+                    paradise
                 </div>
             </div>
             <div class="row justify-content-center text-center content">
                     <div class="col-12 col-md-10">
-                        <div class="text-grey small mb-1">à¸à¸£à¸´à¸©à¸±à¸ à¹à¸à¸µà¸¢à¸£à¹ à¸à¸²à¸§à¹à¸§à¸­à¸£à¹ à¸à¸³à¸à¸±à¸</div>
-                        <div class="text-grey small mb-3"><a href="https://goo.gl/maps/9EMmMLZeNCE2" class="text-grey" target="_blank">à¸­à¸²à¸à¸²à¸£ à¸à¸´à¸¥à¸¥à¸´à¸ à¹à¸®à¹à¸²à¸ªà¹ à¸à¸±à¹à¸ 5 à¹à¸¥à¸à¸à¸µà¹ 1 à¸à¸à¸à¸ªà¸µà¸¥à¸¡ à¹à¸à¸§à¸à¸ªà¸µà¸¥à¸¡ à¹à¸à¸à¸à¸²à¸à¸£à¸±à¸ à¸à¸£à¸¸à¸à¹à¸à¸à¸¯ 10500</a></div>
-                        <div class="text-grey small mb-1">Copyright Â© Patipon 2018</div>
+                        <div class="text-grey small mb-1">บริษัท เพียร์ พาวเวอร์ จำกัด</div>
+                        <div class="text-grey small mb-3"><a href="https://goo.gl/maps/9EMmMLZeNCE2" class="text-grey" target="_blank">อาคาร ซิลลิค เฮ้าส์ ชั้น 5 เลขที่ 1 ถนนสีลม แขวงสีลม เขตบางรัก กรุงเทพฯ 10500</a></div>
                         <div class="social-icons">
                             <a href="https://www.facebook.com/PeerPowerThailand/" target="_blank"><i class="fa fa-facebook-square text-grey" aria-hidden="true"></i></a>
                             <a href="https://www.linkedin.com/company/peer-power-company-limited/" target="_blank"><i class="fa fa-linkedin-square text-grey" aria-hidden="true"></i></a>
@@ -162,17 +115,48 @@
                 </div>
         </div>
 
-        <!-- <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div> -->
+         <!-- Loading -->
+        <div id="loading" class="loading-background-image">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" style="z-index: 10500;" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer"></div>
+            </div>
+            </div>
+        </div>
+
+        <div id="jssor-content" class="background-image">
+            <div class="close-area" onclick="closeJssor()">
+                <div class="icon-close"></div>
+            </div>
+            <div class="jssor-content-area"></div>
+        </div>
     </div>
 
     <script type='text/javascript'>
         $(document).ready(function () {
-            $('#carouselExampleIndicators').carousel({
-                interval: 2000
+            ajaxCall({
+                type: 'POST',
+          			url: "home",
+          			replaceid: '#container',
+          			onSuccess: function() {
+    				
+                }
             });
         });
     </script>

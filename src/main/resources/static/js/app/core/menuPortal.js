@@ -15,7 +15,7 @@ var menuPortal = {
         menuPortal.opts = $.extend( menuPortal.opts , dataOpts );
     },
 
-    menuPortalAction: function(menuKey) {
+    menuPortalAction: function(menuKey, elm) {
     	var portalUrl = menuPortal.url_portal[menuKey];
     	if (!!portalUrl) {
     		ajaxCall({
@@ -26,6 +26,14 @@ var menuPortal = {
     				
     			}
     		});
-    	}
+        }
+        
+        if (!!elm) {
+            $(elm).parents("ul").find("li.active").removeClass("active");
+            $(elm).parents("li").addClass("active");
+        }
+        else {
+            $(".navbar-nav").find("li.active").removeClass("active");
+        }
      },
 }

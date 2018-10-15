@@ -15,9 +15,17 @@ public class PortalController {
 	public static final String PAGE_HOME = "home";
 	public static final String PAGE_ABOUT = "about";
 	public static final String PAGE_CONTACT = "contact";
-	public static final String PAGE_GALLERY = "gallery";
-	public static final String PAGE_OUR_WORKS = "ourWorks";
 	public static final String PAGE_SERVICES = "services";
+	
+	public static final String PAGE_GALLERY = "gallery";
+	public static final String PAGE_SUB_GALLERY = "sub_gallery";
+	public static final String PAGE_JSSOR_SUB_GALLERY = "jssor_sub_gallery";
+	
+	public static final String PAGE_OUR_WORKS = "ourWorks";
+	public static final String PAGE_SUB_OUR_WORKS = "sub_our_works";
+	public static final String PAGE_JSSOR_SUB_OUR_WORKS = "jssor_sub_our_works";
+	
+	
 
 	//private Logger logger = LogManager.getLogger(PortalController.class);
 	
@@ -57,9 +65,33 @@ public class PortalController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value = "gallery/sub", method = { RequestMethod.POST })
+	public ModelAndView subGallery(HttpServletRequest reqServlet) {
+		ModelAndView modelAndView = new ModelAndView(PAGE_SUB_GALLERY);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "gallery/sub/jssor", method = { RequestMethod.POST })
+	public ModelAndView jssorSubGallery(HttpServletRequest reqServlet) {
+		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_GALLERY);
+		return modelAndView;
+	}
+	
 	@RequestMapping(value = "ourWorks", method = { RequestMethod.POST })
 	public ModelAndView ourWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_OUR_WORKS);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "ourWorks/sub", method = { RequestMethod.POST })
+	public ModelAndView subOurWorks(HttpServletRequest reqServlet) {
+		ModelAndView modelAndView = new ModelAndView(PAGE_SUB_OUR_WORKS);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "ourWorks/sub/jssor", method = { RequestMethod.POST })
+	public ModelAndView jssorSubOurWorks(HttpServletRequest reqServlet) {
+		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_OUR_WORKS);
 		return modelAndView;
 	}
 	
