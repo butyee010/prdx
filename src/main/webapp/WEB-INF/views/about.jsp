@@ -25,10 +25,4 @@
                 <p>${contentDesc4}</p>
             </div>
         </section>
-        <section class="row content" style="padding-top: 0">
-                <div class="col-sm-12">
-                    <label class="label-header">${contentHeader5}</label>
-                    <p>${contentDesc5}</p>
-                </div>
-            </section>
     </section>

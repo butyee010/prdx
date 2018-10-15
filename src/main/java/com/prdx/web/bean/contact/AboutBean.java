@@ -17,7 +17,4 @@ public class AboutBean {
 	public String contentHeader4;
 	public String contentDesc4;
 	
-	public String contentHeader5;
-	public String contentDesc5;
-	
 }
