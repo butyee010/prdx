@@ -20,7 +20,8 @@ public class PortalConstants {
     
     public static final String SELECT_ALL = "ALL";
     
-    public static final int ACCOUNT_LENGTH = 10;
     
     public static final String IMAGE_NAME_DEFUALT = "prdx image";
+    public static final String GALLERY = "Gallery";
+    public static final String OUR_WORKS = "Our Works";
 }

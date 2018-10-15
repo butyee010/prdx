@@ -77,20 +77,6 @@ public class StringUtil {
 		return text;
 	}
 	
-	public static String accountFormat(String accountNumber) {
-        if(StringUtils.isBlank(accountNumber))   {
-            return accountNumber;
-        }
-        if(accountNumber!=null && accountNumber.length() == PortalConstants.ACCOUNT_LENGTH) {
-           StringBuffer sb = new StringBuffer(accountNumber);
-           sb.insert(3,"-");
-           sb.insert(5,"-");
-           sb.insert(11,"-");
-           return sb.toString();
-        }
-       return accountNumber;
-    }
-	
 	public static List<String> convertArrayToList(String[] strArray) {
 		List<String> strList = new ArrayList<String>();
 		if (strArray != null) {
