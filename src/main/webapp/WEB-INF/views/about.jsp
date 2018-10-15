@@ -5,50 +5,30 @@
 <section class="about">
         <section class="row content" style="padding-top: 0">
             <div class="col-sm-12">
-                <label class="label-header">Header</label>
-                <p>We are a fast growing, established company focused on delivering best-of-breed software
-                    solutions. With the strategy focusing on building clientsâ relationship as âthe
-                    partnerâ together with our robust research and certified development teams, our company
-                    offers world class professional services including software development, enterprise
-                    computing consulting and staff outsourcing.</p>
+                <label class="label-header">${contentHeader1}</label>
+                <p>${contentDesc1}</p>
             </div>
         </section>
         <section class="row content">
             <div class="col-sm-4">
-                <label class="label-header">Header</label>
-                <p>We are a fast growing, established company focused on delivering best-of-breed software
-                    solutions. With the strategy focusing on building clientsâ relationship as âthe
-                    partnerâ together with our robust research and certified development teams, our company
-                    offers world class professional services including software development, enterprise
-                    computing consulting and staff outsourcing.</p>
+                <label class="label-header">${contentHeader2}</label>
+                <p>${contentDesc2}</p>
             </div>
             <div class="col-sm-8">
-                <label class="label-header">Header</label>
-                <p>We are a fast growing, established company focused on delivering best-of-breed software
-                    solutions. With the strategy focusing on building clientsâ relationship as âthe
-                    partnerâ together with our robust research and certified development teams, our company
-                    offers world class professional services including software development, enterprise
-                    computing consulting and staff outsourcing.</p>
+                <label class="label-header">${contentHeader3}</label>
+                <p>${contentDesc3}</p>
             </div>
         </section>
         <section class="row content" style="padding-top: 0">
             <div class="col-sm-12">
-                <label class="label-header">Header</label>
-                <p>We are a fast growing, established company focused on delivering best-of-breed software
-                    solutions. With the strategy focusing on building clientsâ relationship as âthe
-                    partnerâ together with our robust research and certified development teams, our company
-                    offers world class professional services including software development, enterprise
-                    computing consulting and staff outsourcing.</p>
+                <label class="label-header">${contentHeader4}</label>
+                <p>${contentDesc4}</p>
             </div>
         </section>
         <section class="row content" style="padding-top: 0">
                 <div class="col-sm-12">
-                    <label class="label-header">Header</label>
-                    <p>We are a fast growing, established company focused on delivering best-of-breed software
-                        solutions. With the strategy focusing on building clientsâ relationship as âthe
-                        partnerâ together with our robust research and certified development teams, our company
-                        offers world class professional services including software development, enterprise
-                        computing consulting and staff outsourcing.</p>
+                    <label class="label-header">${contentHeader5}</label>
+                    <p>${contentDesc5}</p>
                 </div>
             </section>
     </section>

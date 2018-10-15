@@ -9,14 +9,14 @@
             <div class="placecard__container">
 
                 <div class="placecard__left">
-                    <p class="placecard__business-name">Phloen Chit</p>
-                    <p class="placecard__info">BTS Phloen Chit</p>
-                    <a class="placecard__view-large" target="_blank" href="https://www.google.co.th/maps/place/Phloen+Chit/@13.74311,100.5466183,17z/data=!3m1!4b1!4m5!3m4!1s0x30e29edcfb15ae2b:0xb3f399fbdb9ddf6c!8m2!3d13.74311!4d100.548807"
+                    <p class="placecard__business-name">${locationName}</p>
+                    <p class="placecard__info">${locationInfo}</p>
+                    <a class="placecard__view-large" target="_blank" href="${directLargeMapUrl}"
                         id="A_41">View larger map</a>
                 </div> <!-- placecard__left -->
 
                 <div class="placecard__right">
-                    <a class="placecard__direction-link" target="_blank" href="https://www.google.co.th/maps/dir//Phloen+Chit,+Khwaeng+Lumphini,+Khet+Pathum+Wan,+Krung+Thep+Maha+Nakhon+10330/@13.74311,100.5466183,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x30e29edcfb15ae2b:0xb3f399fbdb9ddf6c!2m2!1d100.548807!2d13.74311"
+                    <a class="placecard__direction-link" target="_blank" href="${directUrl}"
                         id="A_9">
                         <div class="placecard__direction-icon"></div>
                         Directions
@@ -27,14 +27,14 @@
     </div> <!-- map-container -->
     <div id="map" style="height: 500px;"></div>
     <div class="location-header">
-        <p>Phloen Chit</p>
+        <p>${locationName}</p>
     </div>
     <section class="row content" style="padding-top: 0;">
         <div class="col-sm-12">
             <p> 
-                <span>Address:&nbsp;163 Ocean Bldg. 16th Fl., Surawongse Rd., Suriyawongse, Bangrak, Bangkok 10500</span><br>
-                <span>Telephone:&nbsp;+66 (0)2 634 0815</span><br>
-                <span>E-mail:&nbsp;<a href="mailto: orcsoft@orcsoft.co.th">orcsoft@orcsoft.co.th</a></span>
+                <span>Address:&nbsp;${address}</span><br>
+                <span>Telephone:&nbsp;${tel}</span><br>
+                <span>E-mail:&nbsp;<a href="mailto: ${email}">${email}</a></span>
             </p>
         </div>
     </section>
@@ -44,17 +44,17 @@
     $(document).ready(function () {
         function initMap() {
             var latLong = {
-                lat: 13.7431,
-                lng: 100.5488
+                lat: '${latitude}',
+                lng: '${longitude}'
             };
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: latLong,
-                zoom: 15
+                zoom: '${mapZoom}'
             });
             var marker = new google.maps.Marker({
                 position: latLong,
                 map: map,
-                title: 'Phloen Chit'
+                title: '${locationName}'
             });
         }
         initMap();

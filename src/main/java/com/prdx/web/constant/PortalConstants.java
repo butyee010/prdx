@@ -22,6 +22,5 @@ public class PortalConstants {
     
     public static final int ACCOUNT_LENGTH = 10;
     
-    public static final String DOWNLOAD_INPUT = "DOWNLOAD_INPUT";
-    public static final String DOWNLOAD_OUTPUT = "DOWNLOAD_OUTPUT";
+    public static final String IMAGE_NAME_DEFUALT = "prdx image";
 }
