@@ -16,7 +16,7 @@
 		<c:forEach var="itemSub" items="${itemSubOurWorksMap}">
 			<section class="row content section-content" style="padding-top: 0">
 		        <div class="col-sm-4">
-		            <img class="d-block w-100 img-radius sub-our-work-img-circle" src="${itemSub.value.imgPath}" alt="${itemSub.value.imgName}" onclick="ourWorks.openJssorSubOurWorks('${itemSub.key}')">
+		            <img class="d-block w-100 img-radius" src="${itemSub.value.imgPath}" alt="${itemSub.value.imgName}" onclick="ourWorks.openJssorSubOurWorks('${itemSub.key}')">
 		        </div>
 		        <div class="col-sm-8 block-content">
 		            <label class="label-header">${itemSub.value.topicName}</label>

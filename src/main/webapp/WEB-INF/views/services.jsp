@@ -9,7 +9,7 @@
 		<c:forEach var="service" items="${serviceList}">
 		    <section class="row content section-content thumbnail" style="padding-top: 0">
 		        <div class="col-sm-4">
-		            <img class="d-block w-100 img-radius" src="${service.imgPath}" alt="${service.imgName}">
+		            <img class="d-block w-100 img-radius block-img-circle" src="${service.imgPath}" alt="${service.imgName}">
 		        </div>
 		        <div class="col-sm-8 block-content">
 		            <label class="label-header">${service.header}</label>
