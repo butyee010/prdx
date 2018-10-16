@@ -25,11 +25,18 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.prdx.web.bean.contact.AboutBean;
 import com.prdx.web.bean.contact.ContactBean;
+import com.prdx.web.bean.contact.GalleryBean;
+import com.prdx.web.bean.contact.GallerySubBean;
+import com.prdx.web.bean.contact.GallerySubJssorBean;
 import com.prdx.web.bean.contact.HomeBean;
+import com.prdx.web.bean.contact.OurWorksSubBean;
+import com.prdx.web.bean.contact.OurWorksSubJssorBean;
 import com.prdx.web.bean.contact.ServicesBean;
 import com.prdx.web.service.AboutPageService;
 import com.prdx.web.service.ContactPageService;
+import com.prdx.web.service.GalleryPageService;
 import com.prdx.web.service.HomePageService;
+import com.prdx.web.service.OurWorksPageService;
 import com.prdx.web.service.ServicesPageService;
 
 @Controller
@@ -59,6 +66,10 @@ public class PortalController {
 	private ContactPageService contactPageService;
 	@Autowired
 	private ServicesPageService servicesPageService;
+	@Autowired
+	private GalleryPageService galleryPageService;
+	@Autowired
+	private OurWorksPageService ourWorksPageService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest reqServlet) {
@@ -115,7 +126,9 @@ public class PortalController {
 	@RequestMapping(value = "gallery", method = { RequestMethod.POST })
 	public ModelAndView gallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_GALLERY);
+		List<GalleryBean> galleryBeanList = new ArrayList<GalleryBean>();
 		try {
+			galleryBeanList = galleryPageService.getGalleryBeanList();
 
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -126,8 +139,10 @@ public class PortalController {
 	@RequestMapping(value = "gallery/sub", method = { RequestMethod.POST })
 	public ModelAndView subGallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_SUB_GALLERY);
+		GallerySubBean gallerySubBean = new GallerySubBean();
+		String topic = "GallerySubBean.header";
 		try {
-
+			gallerySubBean = galleryPageService.getGallerySubBean(topic);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -137,8 +152,12 @@ public class PortalController {
 	@RequestMapping(value = "gallery/sub/jssor", method = { RequestMethod.POST })
 	public ModelAndView jssorSubGallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_GALLERY);
+		GallerySubJssorBean gallerySubJssorBean = new GallerySubJssorBean();
+		String topic = "GallerySubBean.header";
+		Integer totalImage = 0;
 		try {
-
+			totalImage = galleryPageService.getTotalImageJssor(topic);
+			gallerySubJssorBean = galleryPageService.getGallerySubJssorBean(topic);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -149,6 +168,7 @@ public class PortalController {
 	public ModelAndView ourWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_OUR_WORKS);
 		List<ServicesBean> servicesBeanList = new ArrayList<ServicesBean>();
+		//OurWorksBean --> ServicesBean
 		try {
 			servicesBeanList = servicesPageService.getAllServices();
 
@@ -161,7 +181,10 @@ public class PortalController {
 	@RequestMapping(value = "ourWorks/sub", method = { RequestMethod.POST })
 	public ModelAndView subOurWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_SUB_OUR_WORKS);
+		OurWorksSubBean ourWorksSubBean = new OurWorksSubBean();
+		String serviceName = "ServicesBean.header";
 		try {
+			ourWorksSubBean = ourWorksPageService.getOurWorksSubBean(serviceName);
 
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -172,8 +195,14 @@ public class PortalController {
 	@RequestMapping(value = "ourWorks/sub/jssor", method = { RequestMethod.POST })
 	public ModelAndView jssorSubOurWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_OUR_WORKS);
+		OurWorksSubJssorBean ourWorksSubJssorBean = new OurWorksSubJssorBean();
+		String serviceName = "ServicesBean.header";
+		String topic = "ItemSubOurWorks.topicName";
+		Integer totalImage = 0;
 		try {
-
+			ourWorksSubJssorBean = ourWorksPageService.getOurWorksSubJssorBean(serviceName, topic);
+			totalImage = ourWorksPageService.getTotalImageJssorSubOurWorks(serviceName, topic);
+			
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
