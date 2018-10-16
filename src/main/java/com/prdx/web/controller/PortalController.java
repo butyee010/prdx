@@ -1,7 +1,14 @@
 package com.prdx.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -151,15 +158,37 @@ public class PortalController {
 		}
 		return modelAndView;
 	}
-
-	/*@RequestMapping(value = "services", method = { RequestMethod.POST })
-	public ModelAndView loadImages(HttpServletRequest reqServlet) {
-		ModelAndView modelAndView = new ModelAndView(PAGE_SERVICES);
+	
+	
+	@RequestMapping(value = "test", method = { RequestMethod.GET })
+	public ModelAndView test(HttpServletRequest reqServlet) {
+		ModelAndView modelAndView = new ModelAndView("test");
 		try {
 
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
 		return modelAndView;
-	}*/
+	}
+	
+	@RequestMapping(value = "image/**", method = { RequestMethod.GET, RequestMethod.POST })
+	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response) {
+		try {
+			response.setContentType("image/jpeg");  
+			File file = new File("C:/Users/USER/Documents/default_medium_KTB.jpg");
+			InputStream inputStream;
+			try {
+				if(file.exists()){
+					inputStream = new FileInputStream(file);
+					IOUtils.copy(inputStream, response.getOutputStream());
+				    response.flushBuffer();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		} catch (Exception e) {
+			logger.error("Exception: ", e);
+		}
+	}
+
 }
