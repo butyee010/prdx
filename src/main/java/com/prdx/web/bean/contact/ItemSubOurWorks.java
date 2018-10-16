@@ -8,7 +8,6 @@ import lombok.Data;
 public class ItemSubOurWorks {
 	
 	public String topicName;
-	public String header;
 	public String content;
 	public String imgPath;
 	public String imgName = PortalConstants.IMAGE_NAME_DEFUALT;

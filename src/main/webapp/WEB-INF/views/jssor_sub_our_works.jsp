@@ -10,46 +10,14 @@
         <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
     </div>
     <div data-u="slides" class="jssor-slides" style="cursor:default;position:relative;top: 0%;left: 0%;width:980px;height:380px;overflow:hidden;">
-        <div>
-            <img data-u="image" src="${resources}/images/park.jpg" alt="Park">
-            <img data-u="thumb" src="${resources}/images/park.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/coast.jpg" alt="coast">
-            <img data-u="thumb" src="${resources}/images/coast.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/rails.jpg" alt="Rails">
-            <img data-u="thumb" src="${resources}/images/rails.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/tunnel.jpg" alt="tunnel">
-            <img data-u="thumb" src="${resources}/images/tunnel.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/rails.jpg" alt="Rails">
-            <img data-u="thumb" src="${resources}/images/rails.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/traffic.jpg" alt="traffic">
-            <img data-u="thumb" src="${resources}/images/traffic.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/bridge.jpg" alt="bridge">
-            <img data-u="thumb" src="${resources}/images/bridge.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/park.jpg" alt="park">
-            <img data-u="thumb" src="${resources}/images/park.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/tunnel.jpg" alt="tunnel">
-            <img data-u="thumb" src="${resources}/images/tunnel.jpg" />
-        </div>
-        <div>
-            <img data-u="image" src="${resources}/images/rails.jpg" alt="Rails">
-            <img data-u="thumb" src="${resources}/images/rails.jpg" />
-        </div>
+        <c:if test="${not empty carouselList}">
+			<c:forEach var="carousel" items="${carouselList}">
+				<div>
+		            <img data-u="image" src="${carousel.imgPath}" alt="${carousel.imgName}">
+		            <img data-u="thumb" src="${carousel.imgPath}"/>
+		        </div>
+			</c:forEach>
+		</c:if>
     </div>
     <!-- Thumbnail Navigator -->
     <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;bottom:0px;width:980px;height:100px;background-color:#000;" data-autocenter="1" data-scale-bottom="0.75">

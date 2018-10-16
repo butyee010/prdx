@@ -7,27 +7,22 @@
 <section class="sub-our-works">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">Our Works</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Our Works Item</li>
+            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">${ourWorksName}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">${subOurWorksName}</li>
         </ol>
     </nav>
-    <c:if test="${not empty carouselList}">
+    <c:if test="${not empty itemSubOurWorksMap}">
         <% int i = 0; %>
-		<c:forEach var="carousel" items="${carouselList}">
-		
+		<c:forEach var="itemSub" items="${itemSubOurWorksMap}">
+			<section class="row content section-content" style="padding-top: 0">
+		        <div class="col-sm-4">
+		            <img class="d-block w-100 img-radius sub-our-work-img-circle" src="${itemSub.value.imgPath}" alt="${itemSub.value.imgName}" onclick="ourWorks.openJssorSubOurWorks('${itemSub.key}')">
+		        </div>
+		        <div class="col-sm-8 block-content">
+		            <label class="label-header">${itemSub.value.topicName}</label>
+		            <p>${itemSub.value.content}</p>
+		        </div>
+		    </section>
 		</c:forEach>
 	</c:if>
-    <section class="row content section-content" style="padding-top: 0">
-        <div class="col-sm-4">
-            <img class="d-block w-100 img-radius" src="${resources}/images/sky.jpg" alt="..." onclick="ourWorks.openJssorSubOurWorks()">
-        </div>
-        <div class="col-sm-8 block-content">
-            <label class="label-header">Header</label>
-            <p>We are a fast growing, established company focused on delivering best-of-breed software
-                solutions. With the strategy focusing on building clientsâ relationship as âthe
-                partnerâ together with our robust research and certified development teams, our company
-                offers world class professional services including software development, enterprise
-                computing consulting and staff outsourcing.</p>
-        </div>
-    </section>
 </section>

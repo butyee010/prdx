@@ -550,3 +550,10 @@ body {
   bottom: 0px;
   background: rgba(0, 0, 0, 0.3); 
   }
+  
+.sub-our-work-img-circle {
+    border-radius: 50% !important;
+    width: 200px !important;
+    height: 200px !important;
+    margin-left: 5rem !important;
+  }
