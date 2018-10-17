@@ -158,7 +158,7 @@ public class PortalController {
 		return modelAndView;
 	}
 
-	//TODO
+	//TODO TASK
 	@RequestMapping(value = "gallery/sub/jssor", method = { RequestMethod.POST })
 	public ModelAndView jssorSubGallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_GALLERY);
