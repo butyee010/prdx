@@ -9,14 +9,14 @@
             <div class="placecard__container">
 
                 <div class="placecard__left">
-                    <p class="placecard__business-name">${locationName}</p>
-                    <p class="placecard__info">${locationInfo}</p>
-                    <a class="placecard__view-large" target="_blank" href="${directLargeMapUrl}"
+                    <p class="placecard__business-name">${contactBean.locationName}</p>
+                    <p class="placecard__info">${contactBean.locationInfo}</p>
+                    <a class="placecard__view-large" target="_blank" href="${contactBean.directLargeMapUrl}"
                         id="A_41">View larger map</a>
                 </div> <!-- placecard__left -->
 
                 <div class="placecard__right">
-                    <a class="placecard__direction-link" target="_blank" href="${directUrl}"
+                    <a class="placecard__direction-link" target="_blank" href="${contactBean.directUrl}"
                         id="A_9">
                         <div class="placecard__direction-icon"></div>
                         Directions
@@ -27,14 +27,14 @@
     </div> <!-- map-container -->
     <div id="map" style="height: 500px;"></div>
     <div class="location-header">
-        <p>${locationName}</p>
+        <p>${contactBean.locationName}</p>
     </div>
     <section class="row content" style="padding-top: 0;">
         <div class="col-sm-12">
             <p> 
-                <span>Address:&nbsp;${address}</span><br>
-                <span>Telephone:&nbsp;${tel}</span><br>
-                <span>E-mail:&nbsp;<a href="mailto: ${email}">${email}</a></span>
+                <span>Address:&nbsp;${contactBean.address}</span><br>
+                <span>Telephone:&nbsp;${contactBean.tel}</span><br>
+                <span>E-mail:&nbsp;<a href="mailto: ${contactBean.email}">${contactBean.email}</a></span>
             </p>
         </div>
     </section>
@@ -44,17 +44,17 @@
     $(document).ready(function () {
         function initMap() {
             var latLong = {
-                lat: '${latitude}',
-                lng: '${longitude}'
+                lat: ${contactBean.latitude},
+                lng: ${contactBean.longitude}
             };
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: latLong,
-                zoom: '${mapZoom}'
+                zoom: ${contactBean.mapZoom}
             });
             var marker = new google.maps.Marker({
                 position: latLong,
                 map: map,
-                title: '${locationName}'
+                title: '${contactBean.locationName}'
             });
         }
         initMap();

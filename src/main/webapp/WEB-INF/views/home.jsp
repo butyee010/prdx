@@ -58,28 +58,28 @@
 
     <section class="row content-padding content-margin-top">
         <div class="col-sm-12 section-header text-center">
-            ${headerRef1}
+            ${homeBean.headerRef1}
         </div>
         <div class="col-sm-12 text-center">
-            ${contentRef1}
+            ${homeBean.contentRef1}
         </div>
     </section>
 
     <section class="row content-padding content-margin-top">
         <div class="col-sm-12">
-            <img class="d-block w-100 img-radius" style="height: ${imgHightSizeRef2};" src="${imgPathRef2}" alt="${imgNameRef2}">
+            <img class="d-block w-100 img-radius" style="height: ${homeBean.imgHightSizeRef2};" src="${homeBean.imgPathRef2}" alt="${homeBean.imgNameRef2}">
         </div>
     </section>
 
     <section class="row content">
         <div class="col-sm-6">
-            <img class="d-block w-100 img-radius" src="${imgPathRef3}"
-                alt="${imgNameRef3}">
+            <img class="d-block w-100 img-radius" src="${homeBean.imgPathRef3}"
+                alt="${homeBean.imgNameRef3}">
         </div>
         <div class="col-sm-6">
-            <h3 class="pb-1 mb-2 border-bottom"><span class="text-primary">${headerRef3}</span></h3>
+            <h3 class="pb-1 mb-2 border-bottom"><span class="text-primary">${homeBean.headerRef3}</span></h3>
             <div class="mb-3">
-                <div>${contentRef3}</div>
+                <div>${homeBean.contentRef3}</div>
             </div>
         </div>
     </section>

@@ -25,7 +25,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Application</title>
+    <title><spring:message code="web.title"/></title>
+
+	<link rel="shortcut icon" type="image/png" href="${resources}/images/paradise-ex-favicon.png?r=<%=random%>">
 
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
@@ -74,6 +76,9 @@
 		                        </li>
 							</c:forEach>
 						</c:if>
+						 <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_ABOUT', this)">about</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_SERVICES', this)">services</a>
                         </li>

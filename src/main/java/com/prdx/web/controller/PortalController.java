@@ -29,14 +29,13 @@ import com.prdx.web.bean.contact.GalleryBean;
 import com.prdx.web.bean.contact.GallerySubBean;
 import com.prdx.web.bean.contact.GallerySubJssorBean;
 import com.prdx.web.bean.contact.HomeBean;
+import com.prdx.web.bean.contact.MainBean;
 import com.prdx.web.bean.contact.OurWorksSubBean;
 import com.prdx.web.bean.contact.OurWorksSubJssorBean;
 import com.prdx.web.bean.contact.ServicesBean;
 import com.prdx.web.service.AboutPageService;
 import com.prdx.web.service.ContactPageService;
-import com.prdx.web.service.GalleryPageService;
 import com.prdx.web.service.HomePageService;
-import com.prdx.web.service.OurWorksPageService;
 import com.prdx.web.service.ServicesPageService;
 
 @Controller
@@ -66,11 +65,11 @@ public class PortalController {
 	private ContactPageService contactPageService;
 	@Autowired
 	private ServicesPageService servicesPageService;
-	@Autowired
+	/*@Autowired
 	private GalleryPageService galleryPageService;
 	@Autowired
 	private OurWorksPageService ourWorksPageService;
-
+*/
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView(PAGE_MAIN));
@@ -80,6 +79,14 @@ public class PortalController {
 	@RequestMapping(value = "main", method = RequestMethod.GET)
 	public ModelAndView main(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_MAIN);
+		MainBean mainBean = new MainBean();
+		try {
+			//main service
+			modelAndView.addObject("menuList", mainBean.getMenuList());
+			modelAndView.addObject("footerBean", mainBean.getFooterBean());
+		} catch (Exception e) {
+			logger.error("Exception: ", e);
+		}
 		return modelAndView;
 	}
 
@@ -89,6 +96,7 @@ public class PortalController {
 		HomeBean homeBean = new HomeBean();
 		try {
 			homeBean = homePageService.getHomePage();
+			modelAndView.addObject("homeBean", homeBean);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -102,11 +110,11 @@ public class PortalController {
 		AboutBean aboutBean = new AboutBean();
 		try {
 			aboutBean = aboutPageService.getAboutPage();
+			modelAndView.addObject("aboutBean", aboutBean);
 		} 
 		catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
-		
 		return modelAndView;
 	}
 
@@ -116,7 +124,7 @@ public class PortalController {
 		ContactBean contactBean = new ContactBean();
 		try {
 			contactBean = contactPageService.getContactPage();
-
+			modelAndView.addObject("contactBean", contactBean);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -128,8 +136,8 @@ public class PortalController {
 		ModelAndView modelAndView = new ModelAndView(PAGE_GALLERY);
 		List<GalleryBean> galleryBeanList = new ArrayList<GalleryBean>();
 		try {
-			galleryBeanList = galleryPageService.getGalleryBeanList();
-
+//			galleryBeanList = galleryPageService.getGalleryBeanList();
+			modelAndView.addObject("galleryList", galleryBeanList);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -142,13 +150,15 @@ public class PortalController {
 		GallerySubBean gallerySubBean = new GallerySubBean();
 		String topic = "GallerySubBean.header";
 		try {
-			gallerySubBean = galleryPageService.getGallerySubBean(topic);
+//			gallerySubBean = galleryPageService.getGallerySubBean(topic);
+			modelAndView.addObject("gallerySubBean", gallerySubBean);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
 		return modelAndView;
 	}
 
+	//TODO
 	@RequestMapping(value = "gallery/sub/jssor", method = { RequestMethod.POST })
 	public ModelAndView jssorSubGallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_GALLERY);
@@ -156,8 +166,8 @@ public class PortalController {
 		String topic = "GallerySubBean.header";
 		Integer totalImage = 0;
 		try {
-			totalImage = galleryPageService.getTotalImageJssor(topic);
-			gallerySubJssorBean = galleryPageService.getGallerySubJssorBean(topic);
+//			totalImage = galleryPageService.getTotalImageJssor(topic);
+//			gallerySubJssorBean = galleryPageService.getGallerySubJssorBean(topic);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -168,10 +178,9 @@ public class PortalController {
 	public ModelAndView ourWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_OUR_WORKS);
 		List<ServicesBean> servicesBeanList = new ArrayList<ServicesBean>();
-		//OurWorksBean --> ServicesBean
 		try {
 			servicesBeanList = servicesPageService.getAllServices();
-
+			modelAndView.addObject("ourWorksList", servicesBeanList);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -184,7 +193,8 @@ public class PortalController {
 		OurWorksSubBean ourWorksSubBean = new OurWorksSubBean();
 		String serviceName = "ServicesBean.header";
 		try {
-			ourWorksSubBean = ourWorksPageService.getOurWorksSubBean(serviceName);
+//			ourWorksSubBean = ourWorksPageService.getOurWorksSubBean(serviceName);
+			modelAndView.addObject("ourWorksSubBean", ourWorksSubBean);
 
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -200,9 +210,9 @@ public class PortalController {
 		String topic = "ItemSubOurWorks.topicName";
 		Integer totalImage = 0;
 		try {
-			ourWorksSubJssorBean = ourWorksPageService.getOurWorksSubJssorBean(serviceName, topic);
-			totalImage = ourWorksPageService.getTotalImageJssorSubOurWorks(serviceName, topic);
-			
+//			ourWorksSubJssorBean = ourWorksPageService.getOurWorksSubJssorBean(serviceName, topic);
+//			totalImage = ourWorksPageService.getTotalImageJssorSubOurWorks(serviceName, topic);
+			modelAndView.addObject("carouselList", ourWorksSubJssorBean.getCarouselList());
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -215,6 +225,8 @@ public class PortalController {
 		List<ServicesBean> servicesBeanList = new ArrayList<ServicesBean>();
 		try {
 			servicesBeanList = servicesPageService.getAllServices();
+			modelAndView.addObject("serviceList", servicesBeanList);
+
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -222,6 +234,7 @@ public class PortalController {
 	}
 	
 	
+	//TODO FOR TEST
 	@RequestMapping(value = "test", method = { RequestMethod.GET })
 	public ModelAndView test(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView("test");
@@ -237,7 +250,7 @@ public class PortalController {
 	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response, @PathVariable("id") String id) {
 		try {
 			response.setContentType("image/jpeg");  
-			//find file
+			//find file by imageID
 			File file = new File("C:/Users/USER/Documents/default_medium_KTB.jpg");
 			InputStream inputStream;
 			try {

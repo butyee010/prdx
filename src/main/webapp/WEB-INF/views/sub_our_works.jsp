@@ -7,13 +7,13 @@
 <section class="sub-our-works">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">${ourWorksName}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">${subOurWorksName}</li>
+            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">${ourWorksSubBean.ourWorksName}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">${ourWorksSubBean.subOurWorksName}</li>
         </ol>
     </nav>
-    <c:if test="${not empty itemSubOurWorksMap}">
+    <c:if test="${not empty ourWorksSubBean.itemSubOurWorksMap}">
         <% int i = 0; %>
-		<c:forEach var="itemSub" items="${itemSubOurWorksMap}">
+		<c:forEach var="itemSub" items="${ourWorksSubBean.itemSubOurWorksMap}">
 			<section class="row content section-content" style="padding-top: 0">
 		        <div class="col-sm-4">
 		            <img class="d-block w-100 img-radius" src="${itemSub.value.imgPath}" alt="${itemSub.value.imgName}" onclick="ourWorks.openJssorSubOurWorks('${itemSub.key}')">

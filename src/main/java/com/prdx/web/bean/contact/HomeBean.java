@@ -1,5 +1,6 @@
 package com.prdx.web.bean.contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.prdx.web.constant.PortalConstants;
@@ -9,7 +10,7 @@ import lombok.Data;
 @Data
 public class HomeBean {
 	
-	public List<CarouselBean> carouselList;
+	public List<CarouselBean> carouselList = new ArrayList<>();
 	
 	//start block
 	public String headerRef1;

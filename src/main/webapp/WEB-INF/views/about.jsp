@@ -5,24 +5,24 @@
 <section class="about">
         <section class="row content" style="padding-top: 0">
             <div class="col-sm-12">
-                <label class="label-header">${contentHeader1}</label>
-                <p>${contentDesc1}</p>
+                <label class="label-header">${aboutBean.contentHeader1}</label>
+                <p>${aboutBean.contentDesc1}</p>
             </div>
         </section>
         <section class="row content">
             <div class="col-sm-4">
-                <label class="label-header">${contentHeader2}</label>
-                <p>${contentDesc2}</p>
+                <label class="label-header">${aboutBean.contentHeader2}</label>
+                <p>${aboutBean.contentDesc2}</p>
             </div>
             <div class="col-sm-8">
-                <label class="label-header">${contentHeader3}</label>
-                <p>${contentDesc3}</p>
+                <label class="label-header">${aboutBean.contentHeader3}</label>
+                <p>${aboutBean.contentDesc3}</p>
             </div>
         </section>
         <section class="row content" style="padding-top: 0">
             <div class="col-sm-12">
-                <label class="label-header">${contentHeader4}</label>
-                <p>${contentDesc4}</p>
+                <label class="label-header">${aboutBean.contentHeader4}</label>
+                <p>${aboutBean.contentDesc4}</p>
             </div>
         </section>
     </section>

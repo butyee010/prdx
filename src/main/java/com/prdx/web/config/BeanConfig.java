@@ -1,14 +1,10 @@
 package com.prdx.web.config;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.multipart.support.MultipartFilter;
 
-import com.prdx.web.constant.ConfigConstants;
 import com.prdx.web.constant.PortalConstants;
 
 @Configuration

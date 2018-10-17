@@ -7,15 +7,15 @@
 <section class="container gallery-container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_GALLERY')">${galleryName}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">${subGalleryName}</li>
+            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_GALLERY')">${gallerySubBean.galleryName}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">${gallerySubBean.subGalleryName}</li>
         </ol>
     </nav>
     <div class="tz-gallery">
         <div class="row">
-        	<c:if test="${not empty carouselList}">
+        	<c:if test="${not empty gallerySubBean.carouselList}">
         		<% int i = 0; %>
-				<c:forEach var="carousel" items="${carouselList}">
+				<c:forEach var="carousel" items="${gallerySubBean.carouselList}">
 		            <div class="col-sm-6 col-md-4">
 		                <a class="lightbox" onclick="gallery.openJssorSubGalley('${i}')">
 		                    <img src="${carousel.imgPath}" alt="${carousel.imgName}">
