@@ -68,11 +68,13 @@ var sessionKey = "";
 ajaxCall = function(option) {
 	var o = $.extend({
 		type : 'POST',
-		contentType : 'application/json; charset=utf-8',
+//		contentType : 'application/json; charset=utf-8',
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		redirect : '',
 		fullPageReplace : false,
 		session : true,
 		replaceid : '',
+		data: null,
 		showSuccess : false,
 		successMsg : '',
 		modalClose : false,
@@ -325,11 +327,13 @@ function CallJssor(opts) {
 
 function openJssor() {
 	$("#jssor-content").css("display", "block");
+	$("body").css("overflow", "hidden");
 }
 
 function closeJssor() {
 	$("#jssor-content").css("display", "");
 	$("#jssor-content-area").empty();
+	$("body").css("overflow", "");
 }
 
 function openLoading() {

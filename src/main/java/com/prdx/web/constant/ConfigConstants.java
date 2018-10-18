@@ -1,9 +1,27 @@
 package com.prdx.web.constant;
 
+import com.prdx.web.helper.PropertyConfigHelper;
+
 public class ConfigConstants {
 	
-	/*public static String getPromptpayAdjustUploadMaxSize() {
-		return PropertyConfigHelper.getConfigValue("PP_ADJUST.UPLOAD_MAX_SIZE");
-	}*/
+	public static String getBaseImages() {
+		return PropertyConfigHelper.getConfigValue("BASE_IMAGES");
+	}
+	
+	public static String getFooterLabelLeft() {
+		return PropertyConfigHelper.getConfigValue("FOOTER_LABEL_LEFT");
+	}
+	
+	public static String getFooterLabelRight() {
+		return PropertyConfigHelper.getConfigValue("FOOTER_LABEL_RIGHT");
+	}
+	
+	public static String getFooterCenterRef1() {
+		return PropertyConfigHelper.getConfigValue("FOOTER_CENTER_REF_1");
+	}
+	
+	public static String getFooterCenterRef2() {
+		return PropertyConfigHelper.getConfigValue("FOOTER_CENTER_REF_2");
+	}
 	
 }

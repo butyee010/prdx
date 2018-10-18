@@ -1,4 +1,4 @@
-/*package com.prdx.web.helper;
+package com.prdx.web.helper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,10 +9,11 @@ import java.util.concurrent.ConcurrentMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ktb.anyid.adjust.portal.repo.PortalAdminConfigRepo;
-import com.ktb.anyid.adjust.share.entity.PortalAdminConfig;
-import com.ktb.anyid.adjust.share.utils.CommonUtil;
-import com.ktb.anyid.adjust.share.utils.StringUtil;
+import com.prdx.web.bean.PropertiesConfigBean;
+import com.prdx.web.commons.utils.CommonUtil;
+import com.prdx.web.commons.utils.StringUtil;
+import com.prdx.web.dao.PropertiesConfigDAO;
+
 
 @Component
 public class PropertyConfigHelper {
@@ -22,24 +23,24 @@ public class PropertyConfigHelper {
 
 	private static String instanceName = "";
 	
-	private static PortalAdminConfigRepo portalAdminConfigRepo;
+	private static PropertiesConfigDAO propertiesConfigDAO;
 	
 	@Autowired
-	public void initPropertyConfigHelper(PortalAdminConfigRepo portalAdminConfigRepo) {
-		PropertyConfigHelper.portalAdminConfigRepo = portalAdminConfigRepo;
+	public void initPropertyConfigHelper(PropertiesConfigDAO propertiesConfigDAO) {
+		PropertyConfigHelper.propertiesConfigDAO = propertiesConfigDAO;
 	}
 
 	public static void init() {
 		if (instanceName != null && !"".equalsIgnoreCase(instanceName.trim())) {
 			isCheckInstance = true;
 		}
-		List<PortalAdminConfig> propertyConfigList;
+		List<PropertiesConfigBean> propertyConfigList;
 		try {
-			propertyConfigList = portalAdminConfigRepo.getPropertyConfigAll();
+			propertyConfigList = propertiesConfigDAO.findAll();
 			if (!CommonUtil.checkListIsNull(propertyConfigList)) {
 				configMap = new ConcurrentHashMap<String, String[]>();
-				for (PortalAdminConfig config : propertyConfigList) {
-					configMap.put(config.getPamcConfigKey(), StringUtil.getArrayFromFix(config.getPamcConfigValue()));
+				for (PropertiesConfigBean config : propertyConfigList) {
+					configMap.put(config.getKey(), StringUtil.getArrayFromFix(config.getValue()));
 				}
 			}
 		} catch (Exception e) {
@@ -47,7 +48,7 @@ public class PropertyConfigHelper {
 		}
 	}
 
-	public static String getSpecialConfig(String key) {
+/*	public static String getSpecialConfig(String key) {
 		try {
 			String result = "";
 			PortalAdminConfig portalAdminConfig = portalAdminConfigRepo.findOne(key);
@@ -60,7 +61,7 @@ public class PropertyConfigHelper {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 
 	public static String getConfigValue(String key) {
 		if (configMap == null)
@@ -178,4 +179,3 @@ public class PropertyConfigHelper {
 	}
 	
 }
-*/

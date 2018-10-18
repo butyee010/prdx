@@ -1,13 +1,18 @@
 package com.prdx.web.dao.impl;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+import com.prdx.web.bean.PropertiesMappingBean;
 import com.prdx.web.constant.SQLConstants;
 import com.prdx.web.dao.PropertyMappingDAO;
 
+@Repository
 public class PropertyMappingDAOImpl implements PropertyMappingDAO{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -20,6 +25,14 @@ public class PropertyMappingDAOImpl implements PropertyMappingDAO{
 		if(temp != null && temp.size() > 0) {
 			result = temp.get(0);
 		}
+		return result;
+	}
+	
+	@Override
+	public List<PropertiesMappingBean> findAll() throws Exception {
+		String sql = SQLConstants.SQL_FIND_ALL_PROPERTIES_MAPPING;
+		List<PropertiesMappingBean> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<PropertiesMappingBean>(PropertiesMappingBean.class));
+		
 		return result;
 	}
 

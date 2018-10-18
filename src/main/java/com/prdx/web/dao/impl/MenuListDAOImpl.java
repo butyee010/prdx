@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.prdx.web.bean.contact.MenuBean;
 import com.prdx.web.constant.SQLConstants;
 import com.prdx.web.dao.MenuListDAO;
 
+@Repository
 public class MenuListDAOImpl implements MenuListDAO{
 	
 	@Autowired

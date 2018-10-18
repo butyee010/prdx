@@ -1,4 +1,4 @@
-/*package com.prdx.web.helper;
+package com.prdx.web.helper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.concurrent.ConcurrentMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ktb.anyid.adjust.portal.repo.PortalAdminPropertiesRepo;
-import com.ktb.anyid.adjust.share.entity.PortalAdminProperties;
+import com.prdx.web.bean.PropertiesMappingBean;
 import com.prdx.web.commons.utils.CommonUtil;
+import com.prdx.web.dao.PropertyMappingDAO;
 
 @Component
 public class DropDownConfigHelper {
@@ -21,30 +21,30 @@ public class DropDownConfigHelper {
 
 	private static String instanceName = "";
 
-	private static PortalAdminPropertiesRepo portalAdminPropertiesRepo;
+	private static PropertyMappingDAO propertyMappingDAO;
 	
 	@Autowired
-	public void initDropDownConfigHelper(PortalAdminPropertiesRepo portalAdminPropertiesRepo) {
-		DropDownConfigHelper.portalAdminPropertiesRepo = portalAdminPropertiesRepo;
+	public void initDropDownConfigHelper(PropertyMappingDAO propertyMappingDAO) {
+		DropDownConfigHelper.propertyMappingDAO = propertyMappingDAO;
 	}
 	
 	public static void init() {
 		if (instanceName != null && !"".equalsIgnoreCase(instanceName.trim())) {
 			isCheckInstance = true;
 		}
-		List<PortalAdminProperties> dropdownConfigList;
+		List<PropertiesMappingBean> dropdownConfigList;
 		try {
-			dropdownConfigList = portalAdminPropertiesRepo.getDropDownConfigAll();
+			dropdownConfigList = propertyMappingDAO.findAll();
 			if (!CommonUtil.checkListIsNull(dropdownConfigList)) {
 				configMap = new ConcurrentHashMap<String, Map<String , String>>();
-				for (PortalAdminProperties config : dropdownConfigList) {
-					if (configMap.containsKey(config.getId().getPropertiesGroup())) {
-						configMap.get(config.getId().getPropertiesGroup()).put(config.getId().getPropertiesKey(), config.getPropertiesValue());
+				for (PropertiesMappingBean config : dropdownConfigList) {
+					if (configMap.containsKey(config.getGroup())) {
+						configMap.get(config.getGroup()).put(config.getKey(), config.getValue());
 					}
 					else {
 						Map<String , String> groupMap = new HashMap<String , String>();
-						groupMap.put(config.getId().getPropertiesKey(), config.getPropertiesValue());
-						configMap.put(config.getId().getPropertiesGroup(), groupMap);
+						groupMap.put(config.getKey(), config.getValue());
+						configMap.put(config.getGroup(), groupMap);
 					}
 				}
 			}
@@ -101,4 +101,3 @@ public class DropDownConfigHelper {
 	}
 	
 }
-*/

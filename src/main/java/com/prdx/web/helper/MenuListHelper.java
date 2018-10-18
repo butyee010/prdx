@@ -3,10 +3,12 @@ package com.prdx.web.helper;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.prdx.web.bean.contact.MenuBean;
 import com.prdx.web.dao.MenuListDAO;
 
+@Component
 public class MenuListHelper {
 	
 	private static MenuListDAO menuListDAO;

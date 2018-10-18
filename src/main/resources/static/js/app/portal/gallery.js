@@ -3,10 +3,11 @@ var gallery = {
 
 	},
 
-	openSubGalley: function() {
+	openSubGalley: function(topic) {
 		ajaxCall({
 			type: "POST",
 			url: "gallery/sub",
+			data: {topic: topic},
 			replaceid: "#container",
 			onSuccess: function() {
 				
@@ -14,10 +15,11 @@ var gallery = {
 		});		
 	},
 
-	openJssorSubGalley: function() {
+	openJssorSubGalley: function(topic) {
 		CallJssor({
 			type: "POST",
 			url: "gallery/sub/jssor",
+			data: {topic: topic},
 			onSuccess: function() {
 			},
 		});

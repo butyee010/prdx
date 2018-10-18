@@ -8,9 +8,8 @@
     <section id="carouselPrdx" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
         	<c:if test="${not empty homeBean.carouselList}">
-				<% int i = 0; 
-				   boolean frist = true;
-				%>
+				<% int i = 0; %>
+				<c:set var="frist" value="true"/>
 				<c:forEach var="carousel" items="${homeBean.carouselList}">
 					<c:choose>
 						<c:when test="${frist}">
@@ -20,15 +19,14 @@
 							<li data-target="#carouselPrdx" data-slide-to="<%=i%>"></li>
 						</c:otherwise>
 						</c:choose>
-				<% frist = false;
-				   i++;
-				 %>
+				<c:set var="frist" value="false"/>
+				<% i++; %>
 				</c:forEach>
 			</c:if>
         </ol>
         <div class="carousel-inner">
         	<c:if test="${not empty homeBean.carouselList}">
-				<% boolean frist = true; %>
+				<c:set var="frist" value="true"/>
 				<c:forEach var="carousel" items="${homeBean.carouselList}">
 					<c:choose>
 						<c:when test="${frist}">
@@ -41,8 +39,8 @@
 				                 <img class="d-block w-100" src="${carousel.imgPath}" alt="${carousel.imgName}">
 				            </div>
 						</c:otherwise>
-						</c:choose>
-				<% frist = false; %>
+					</c:choose>
+				<c:set var="frist" value="false"/>
 				</c:forEach>
 			</c:if>
         </div>
@@ -87,7 +85,7 @@
 
 <script type='text/javascript'>
     $(document).ready(function () {
-        $('#carouselExampleIndicators').carousel({
+        $('#carouselPrdx').carousel({
             interval: 2000
         });
     });

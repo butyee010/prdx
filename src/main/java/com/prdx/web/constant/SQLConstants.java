@@ -4,8 +4,8 @@ public class SQLConstants {
 
 	public static final String SQL_GET_VALUE_ABOUT_PAGE_BY_KEY = " select AP_VALUE from about_page where AP_KEY = ? ";
 	
-	public static final String SQL_GET_ALL_MENU_LIST = " select menu_key AS key, menu_name AS name, menu_script AS script "
-			+ " from menu_list order by menu_order ";
+	public static final String SQL_GET_ALL_MENU_LIST = " select menu_key AS 'key', menu_name AS name, menu_script AS script "
+			+ " from menu_list order by menu_order asc ";
 	
 	public static final String SQL_GET_MENU_LIST_BY_KEY = " select menu_key AS key, menu_name AS name, menu_script AS script "
 			+ " from menu_list where menu_key = ? ";
@@ -40,4 +40,10 @@ public class SQLConstants {
 			+ "where OWPD_OWPM_SERVICE = ? and OWPD_OWPM_TOPIC = ? order by OWPD_RECORD ";
 	
 	public static final String SQL_GET_TOTAL_IMAGE_JSSOR_OUR_WORK = "select count(*) from our_work_page_detail where OWPD_OWPM_SERVICE = ? and OWPD_OWPM_TOPIC = ? ";
+	
+	
+	public static final String SQL_FIND_ALL_PROPERTIES_CONFIG = " select config_key AS 'key', config_value AS value from properties_config ";
+
+	public static final String SQL_FIND_ALL_PROPERTIES_MAPPING = " select properties_key AS 'key', properties_value AS value, properties_group as group from properties_mapping ";
+
 }

@@ -1,6 +1,8 @@
 package com.prdx.web.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.prdx.web.bean.contact.ItemSubOurWorks;
 import com.prdx.web.bean.contact.OurWorksSubBean;
 import com.prdx.web.bean.contact.OurWorksSubJssorBean;
+import com.prdx.web.bean.contact.ServicesBean;
+import com.prdx.web.commons.utils.CollectionUtil;
 import com.prdx.web.dao.OurWorksPageDAO;
 import com.prdx.web.service.OurWorksPageService;
 
@@ -47,6 +51,29 @@ public class OurWorksPageServiceImpl implements OurWorksPageService{
 	@Override
 	public Integer getTotalImageJssorSubOurWorks(String serviceName, String topic) throws Exception {
 		return ourWorksPageDAO.getTotalImageJssorSubOurWorks(serviceName, topic);
+	}
+	
+	@Override
+	public Map<String, List<ServicesBean>> customizeOurworksDisplay(List<ServicesBean> servicesBeanList) {
+		Map<String, List<ServicesBean>> servicesBeanMap = new LinkedHashMap<String, List<ServicesBean>>();
+		if (CollectionUtil.isNotEmpty(servicesBeanList)) {
+			int row = 1;
+			List<ServicesBean> itemList = new ArrayList<>();
+			itemList.add(servicesBeanList.get(0));
+			for (int i=1; i<servicesBeanList.size(); i++) {
+				
+				if (i % 3 == 0) {
+					servicesBeanMap.put(String.valueOf(row++), itemList);
+					itemList = new ArrayList<>();
+				}
+				
+				itemList.add(servicesBeanList.get(i));
+				
+				if (CollectionUtil.isNotEmpty(itemList) && i == (servicesBeanList.size() - 1)) 
+					servicesBeanMap.put(String.valueOf(row++), itemList);
+			}
+		}
+		return servicesBeanMap;
 	}
 
 }

@@ -76,21 +76,6 @@
 		                        </li>
 							</c:forEach>
 						</c:if>
-						 <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_ABOUT', this)">about</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_SERVICES', this)">services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS', this)">our works</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_GALLERY', this)">gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" onclick="menuPortal.menuPortalAction('PAGE_CONTACT', this)">contact</a>
-                        </li>
                     </ul>
                 </nav>
             </div>

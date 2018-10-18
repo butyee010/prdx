@@ -9,6 +9,5 @@ import lombok.Data;
 public class MainBean {
 
 	public List<MenuBean> menuList = new ArrayList<>();
-	public FooterBean footerBean = new FooterBean();
 	
 }

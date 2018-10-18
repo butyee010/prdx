@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,6 +25,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.prdx.web.bean.contact.AboutBean;
 import com.prdx.web.bean.contact.ContactBean;
+import com.prdx.web.bean.contact.FooterBean;
 import com.prdx.web.bean.contact.GalleryBean;
 import com.prdx.web.bean.contact.GallerySubBean;
 import com.prdx.web.bean.contact.GallerySubJssorBean;
@@ -33,9 +34,13 @@ import com.prdx.web.bean.contact.MainBean;
 import com.prdx.web.bean.contact.OurWorksSubBean;
 import com.prdx.web.bean.contact.OurWorksSubJssorBean;
 import com.prdx.web.bean.contact.ServicesBean;
+import com.prdx.web.constant.ConfigConstants;
+import com.prdx.web.helper.MenuListHelper;
 import com.prdx.web.service.AboutPageService;
 import com.prdx.web.service.ContactPageService;
+import com.prdx.web.service.GalleryPageService;
 import com.prdx.web.service.HomePageService;
+import com.prdx.web.service.OurWorksPageService;
 import com.prdx.web.service.ServicesPageService;
 
 @Controller
@@ -65,11 +70,11 @@ public class PortalController {
 	private ContactPageService contactPageService;
 	@Autowired
 	private ServicesPageService servicesPageService;
-	/*@Autowired
+	@Autowired
 	private GalleryPageService galleryPageService;
 	@Autowired
 	private OurWorksPageService ourWorksPageService;
-*/
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(new RedirectView(PAGE_MAIN));
@@ -80,10 +85,18 @@ public class PortalController {
 	public ModelAndView main(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_MAIN);
 		MainBean mainBean = new MainBean();
+		FooterBean footerBean = new FooterBean();
 		try {
 			//main service
+			mainBean.setMenuList(MenuListHelper.findAll());
+			
+			footerBean.setLabelLeft(ConfigConstants.getFooterLabelLeft());
+			footerBean.setLabelRight(ConfigConstants.getFooterLabelRight());
+			footerBean.setCenterRef1(ConfigConstants.getFooterCenterRef1());
+			footerBean.setCenterRef2(ConfigConstants.getFooterCenterRef2());
+			
 			modelAndView.addObject("menuList", mainBean.getMenuList());
-			modelAndView.addObject("footerBean", mainBean.getFooterBean());
+			modelAndView.addObject("footerBean", footerBean);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -136,7 +149,7 @@ public class PortalController {
 		ModelAndView modelAndView = new ModelAndView(PAGE_GALLERY);
 		List<GalleryBean> galleryBeanList = new ArrayList<GalleryBean>();
 		try {
-//			galleryBeanList = galleryPageService.getGalleryBeanList();
+			galleryBeanList = galleryPageService.getGalleryBeanList();
 			modelAndView.addObject("galleryList", galleryBeanList);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -150,7 +163,7 @@ public class PortalController {
 		GallerySubBean gallerySubBean = new GallerySubBean();
 		String topic = "GallerySubBean.header";
 		try {
-//			gallerySubBean = galleryPageService.getGallerySubBean(topic);
+			gallerySubBean = galleryPageService.getGallerySubBean(topic);
 			modelAndView.addObject("gallerySubBean", gallerySubBean);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -158,16 +171,16 @@ public class PortalController {
 		return modelAndView;
 	}
 
-	//TODO TASK
 	@RequestMapping(value = "gallery/sub/jssor", method = { RequestMethod.POST })
 	public ModelAndView jssorSubGallery(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_GALLERY);
 		GallerySubJssorBean gallerySubJssorBean = new GallerySubJssorBean();
-		String topic = "GallerySubBean.header";
 		Integer totalImage = 0;
 		try {
-//			totalImage = galleryPageService.getTotalImageJssor(topic);
-//			gallerySubJssorBean = galleryPageService.getGallerySubJssorBean(topic);
+			String topic = reqServlet.getParameter("topic");
+			totalImage = galleryPageService.getTotalImageJssor(topic);
+			gallerySubJssorBean = galleryPageService.getGallerySubJssorBean(topic);
+			modelAndView.addObject("carouselList", gallerySubJssorBean.getCarouselList());
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -180,7 +193,8 @@ public class PortalController {
 		List<ServicesBean> servicesBeanList = new ArrayList<ServicesBean>();
 		try {
 			servicesBeanList = servicesPageService.getAllServices();
-			modelAndView.addObject("ourWorksList", servicesBeanList);
+			Map<String, List<ServicesBean>> ourWorksMap = ourWorksPageService.customizeOurworksDisplay(servicesBeanList);
+			modelAndView.addObject("ourWorksMap", ourWorksMap);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -191,11 +205,10 @@ public class PortalController {
 	public ModelAndView subOurWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_SUB_OUR_WORKS);
 		OurWorksSubBean ourWorksSubBean = new OurWorksSubBean();
-		String serviceName = "ServicesBean.header";
 		try {
-//			ourWorksSubBean = ourWorksPageService.getOurWorksSubBean(serviceName);
+			String topic = reqServlet.getParameter("topic");
+			ourWorksSubBean = ourWorksPageService.getOurWorksSubBean(topic);
 			modelAndView.addObject("ourWorksSubBean", ourWorksSubBean);
-
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
@@ -206,12 +219,12 @@ public class PortalController {
 	public ModelAndView jssorSubOurWorks(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView(PAGE_JSSOR_SUB_OUR_WORKS);
 		OurWorksSubJssorBean ourWorksSubJssorBean = new OurWorksSubJssorBean();
-		String serviceName = "ServicesBean.header";
-		String topic = "ItemSubOurWorks.topicName";
 		Integer totalImage = 0;
 		try {
-//			ourWorksSubJssorBean = ourWorksPageService.getOurWorksSubJssorBean(serviceName, topic);
-//			totalImage = ourWorksPageService.getTotalImageJssorSubOurWorks(serviceName, topic);
+			String serviceName = reqServlet.getParameter("serviceName");
+			String topic = reqServlet.getParameter("topic");
+			ourWorksSubJssorBean = ourWorksPageService.getOurWorksSubJssorBean(serviceName, topic);
+			totalImage = ourWorksPageService.getTotalImageJssorSubOurWorks(serviceName, topic);
 			modelAndView.addObject("carouselList", ourWorksSubJssorBean.getCarouselList());
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
@@ -234,8 +247,8 @@ public class PortalController {
 	}
 	
 	
-	//TODO FOR TEST
-	@RequestMapping(value = "test", method = { RequestMethod.GET })
+	//FOR TEST
+	/*@RequestMapping(value = "test", method = { RequestMethod.GET })
 	public ModelAndView test(HttpServletRequest reqServlet) {
 		ModelAndView modelAndView = new ModelAndView("test");
 		try {
@@ -244,14 +257,19 @@ public class PortalController {
 			logger.error("Exception: ", e);
 		}
 		return modelAndView;
-	}
+	}*/
 	
-	@RequestMapping(value = "image/{id}", method = { RequestMethod.GET, RequestMethod.POST })
-	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response, @PathVariable("id") String id) {
+	
+//	@RequestMapping(value = "image/{id}", method = { RequestMethod.GET, RequestMethod.POST })
+//	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response, @PathVariable("id") String id) {
+	@RequestMapping(value = "home/**", method = { RequestMethod.GET, RequestMethod.POST })
+	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response) {
 		try {
 			response.setContentType("image/jpeg");  
 			//find file by imageID
-			File file = new File("C:/Users/USER/Documents/default_medium_KTB.jpg");
+			String basePath = ConfigConstants.getBaseImages();
+			String fileName = "park.jpg";
+			File file = new File(basePath+fileName);
 			InputStream inputStream;
 			try {
 				if(file.exists()){
