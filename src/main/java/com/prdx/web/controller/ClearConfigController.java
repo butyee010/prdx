@@ -1,24 +1,24 @@
-/*package com.prdx.web.controller;
+package com.prdx.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ktb.anyid.adjust.portal.constant.PortalConstants;
-import com.ktb.anyid.adjust.portal.helper.DropDownConfigHelper;
-import com.ktb.anyid.adjust.portal.helper.PropertyConfigHelper;
-import com.ktb.anyid.adjust.portal.log.LogConstants;
-import com.ktb.anyid.adjust.portal.log.LogUtil;
-import com.ktb.anyid.adjust.portal.log.LogUtilImpl;
+import com.prdx.web.constant.PortalConstants;
+import com.prdx.web.helper.DropDownConfigHelper;
+import com.prdx.web.helper.PropertyConfigHelper;
 
 @Controller
 @RequestMapping("/reload")
 public class ClearConfigController {
 
-	private LogUtil logger = LogUtilImpl.getLogger(LogConstants.LOG_CLEAR_CONFIG);
+	private Logger logger = LogManager.getLogger(PortalController.class);
+
 
 	@RequestMapping(value = "config", method = { RequestMethod.GET, RequestMethod.POST })
 	public @ResponseBody String reloadConfig(HttpServletRequest reqServlet) throws Exception {
@@ -42,4 +42,3 @@ public class ClearConfigController {
 		return response;
 	}
 }
-*/

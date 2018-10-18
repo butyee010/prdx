@@ -42,8 +42,8 @@ public class SQLConstants {
 	public static final String SQL_GET_TOTAL_IMAGE_JSSOR_OUR_WORK = "select count(*) from our_work_page_detail where OWPD_OWPM_SERVICE = ? and OWPD_OWPM_TOPIC = ? ";
 	
 	
-	public static final String SQL_FIND_ALL_PROPERTIES_CONFIG = " select config_key AS 'key', config_value AS value from properties_config ";
+	public static final String SQL_FIND_ALL_PROPERTIES_CONFIG = " select config_key AS 'key', config_value AS 'value' from properties_config ";
 
-	public static final String SQL_FIND_ALL_PROPERTIES_MAPPING = " select properties_key AS 'key', properties_value AS value, properties_group as group from properties_mapping ";
+	public static final String SQL_FIND_ALL_PROPERTIES_MAPPING = " select properties_key AS 'key', properties_value AS 'value', properties_group as 'group' from properties_mapping ";
 
 }
