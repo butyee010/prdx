@@ -1,15 +1,26 @@
 package com.prdx.web.helper;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.prdx.web.commons.utils.CommonUtil;
+import com.prdx.web.constant.ConfigConstants;
+import com.prdx.web.constant.DropDownConstants;
 import com.prdx.web.constant.PortalConstants;
 import com.prdx.web.exception.PortalException;
 
@@ -81,5 +92,42 @@ public class ApplicationHelper {
 		}
 		return result;
 	}*/
+	
+	public static void loadImages(HttpServletRequest reqServlet, HttpServletResponse response, Logger logger) {
+		loadImages(reqServlet, response, logger, null);
+	}
+	
+	public static void loadImages(HttpServletRequest reqServlet, HttpServletResponse response, Logger logger, String id) {
+		try {
+			response.setContentType("image/jpeg");  
+			
+			Map<String, String> imageMapping = DropDownConstants.getImageMapping();
+			
+			//find file by imageID
+			String basePath = ConfigConstants.getBaseImages();
+			
+			String fileName = ConfigConstants.getDefualtImages();
+			if (StringUtils.isNotBlank(id) 
+					&& imageMapping != null 
+					&& !imageMapping.isEmpty()
+					&& imageMapping.containsKey(id)) {
+				fileName = imageMapping.get(id);
+			}
+			
+			File file = new File(basePath+fileName);
+			InputStream inputStream;
+			try {
+				if(file.exists()){
+					inputStream = new FileInputStream(file);
+					IOUtils.copy(inputStream, response.getOutputStream());
+				    response.flushBuffer();
+				}
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		} catch (Exception e) {
+			logger.error("Exception: ", e);
+		}
+	}
 	
 }

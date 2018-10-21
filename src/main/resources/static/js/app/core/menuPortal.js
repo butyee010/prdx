@@ -23,16 +23,15 @@ var menuPortal = {
     			url: portalUrl,
     			replaceid: '#container',
     			onSuccess: function() {
-    				
     			}
     		});
         }
         
-        if (!!elm) {
+        if (!!elm && elm != 'back') {
             $(elm).parents("ul").find("li.active").removeClass("active");
             $(elm).parents("li").addClass("active");
         }
-        else {
+        else if(!elm) {
             $(".navbar-nav").find("li.active").removeClass("active");
         }
      },

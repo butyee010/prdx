@@ -101,6 +101,7 @@ ajaxCall = function(option) {
 				},
 				complete : function() {
 					closeLoading();
+					resetWindow();
 				},
 				success : function(html) {
 					if (o.fullPageReplace) {
@@ -342,4 +343,8 @@ function openLoading() {
 
 function closeLoading() {
 	$("#loading").fadeOut("fast");
+}
+
+function resetWindow() {
+	window.scrollTo(0, 0);
 }

@@ -2,10 +2,6 @@ package com.prdx.web.controller;
 
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,11 +9,11 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,6 +31,7 @@ import com.prdx.web.bean.contact.OurWorksSubBean;
 import com.prdx.web.bean.contact.OurWorksSubJssorBean;
 import com.prdx.web.bean.contact.ServicesBean;
 import com.prdx.web.constant.ConfigConstants;
+import com.prdx.web.helper.ApplicationHelper;
 import com.prdx.web.helper.MenuListHelper;
 import com.prdx.web.service.AboutPageService;
 import com.prdx.web.service.ContactPageService;
@@ -260,29 +257,22 @@ public class PortalController {
 	}*/
 	
 	
-//	@RequestMapping(value = "image/{id}", method = { RequestMethod.GET, RequestMethod.POST })
-//	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response, @PathVariable("id") String id) {
-	@RequestMapping(value = "home/**", method = { RequestMethod.GET, RequestMethod.POST })
-	public void loadImage(HttpServletRequest reqServlet, HttpServletResponse response) {
+	/*@RequestMapping(value = "image/**", method = { RequestMethod.GET, RequestMethod.POST })
+	public void loadImageAll(HttpServletRequest reqServlet, HttpServletResponse response) {
 		try {
-			response.setContentType("image/jpeg");  
-			//find file by imageID
-			String basePath = ConfigConstants.getBaseImages();
-			String fileName = "park.jpg";
-			File file = new File(basePath+fileName);
-			InputStream inputStream;
-			try {
-				if(file.exists()){
-					inputStream = new FileInputStream(file);
-					IOUtils.copy(inputStream, response.getOutputStream());
-				    response.flushBuffer();
-				}
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
+			ApplicationHelper.loadImages(reqServlet, response, logger);
 		} catch (Exception e) {
 			logger.error("Exception: ", e);
 		}
 	}
-
+	
+	@RequestMapping(value = "image/{id}", method = { RequestMethod.GET, RequestMethod.POST })
+	public void loadImageByKey(HttpServletRequest reqServlet, HttpServletResponse response, @PathVariable("id") String id) {
+		try {
+			ApplicationHelper.loadImages(reqServlet, response, logger , id);
+		} catch (Exception e) {
+			logger.error("Exception: ", e);
+		}
+	}
+*/
 }

@@ -7,7 +7,7 @@
 <section class="sub-our-works">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS')">${ourWorksSubBean.ourWorksName}</a></li>
+            <li class="breadcrumb-item"><a href="#" onclick="menuPortal.menuPortalAction('PAGE_OUR_WORKS', 'back')">${ourWorksSubBean.ourWorksName}</a></li>
             <li class="breadcrumb-item active" aria-current="page">${ourWorksSubBean.subOurWorksName}</li>
         </ol>
     </nav>

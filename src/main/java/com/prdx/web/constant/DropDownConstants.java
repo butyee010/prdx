@@ -1,9 +1,13 @@
 package com.prdx.web.constant;
 
+import java.util.Map;
+
+import com.prdx.web.helper.DropDownConfigHelper;
+
 public class DropDownConstants {
 
-	/*public static Map<String , String> getMapUnmatchedProductType() {
-		return DropDownConfigHelper.getConfigValue("UNMATCHED_PRODUCT_TYPE");
-	}*/
+	public static Map<String , String> getImageMapping() {
+		return DropDownConfigHelper.getConfigValue("IMAGE_MAPPING");
+	}
 	
 }

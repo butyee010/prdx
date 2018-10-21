@@ -24,4 +24,7 @@ public class ConfigConstants {
 		return PropertyConfigHelper.getConfigValue("FOOTER_CENTER_REF_2");
 	}
 	
+	public static String getDefualtImages() {
+		return PropertyConfigHelper.getConfigValue("DEFUALT_IMAGES");
+	}
 }
