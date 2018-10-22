@@ -344,7 +344,10 @@ body {
     }
 
 .sub-our-works img {
-  cursor: pointer; }
+  cursor: pointer; 
+  border: 2px solid;
+  border-color: white !important;
+  }
 
 .gallery-container h1 {
   text-align: center;
