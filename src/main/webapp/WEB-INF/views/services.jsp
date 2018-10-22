@@ -12,8 +12,8 @@
 		            <img class="d-block img-radius block-img-circle" src="${service.imgPath}" alt="${service.imgName}">
 		        </div>
 		        <div class="col-sm-8 block-content" style="padding-left: 0rem;">
-		            <label class="label-header">${service.header}</label>
-		            <p>${service.content}</p>
+		            <h2><label class="label-header text-primary">${service.header}</label></h2>
+		            <p class="text-white" style="font-size: 20px;">${service.content}</p>
 		        </div>
 		    </section>
 	    </c:forEach>

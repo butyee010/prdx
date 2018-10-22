@@ -63,7 +63,7 @@
         <div class="page-header row">
             <div class="col-sm-4">
                 <div class="brand">
-                    <img class="logo" src="${resources}/images/paradise-ex-logo3.png" alt="paradise-logo" onclick="menuPortal.menuPortalAction('PAGE_HOME')">
+                    <img class="logo" src="${resources}/images/paradise-ex-logo4.png" alt="paradise-logo" onclick="menuPortal.menuPortalAction('PAGE_HOME')">
                 </div>
             </div>
             <div class="col-sm-8">

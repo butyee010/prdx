@@ -26,15 +26,15 @@
         </div> <!-- placeDiv -->
     </div> <!-- map-container -->
     <div id="map" style="height: 500px;"></div>
-    <div class="location-header">
+    <div class="location-header text-primary">
         <p>${contactBean.locationName}</p>
     </div>
     <section class="row content" style="padding-top: 0;">
         <div class="col-sm-12">
             <p> 
-                <span>Address:&nbsp;${contactBean.address}</span><br>
-                <span>Telephone:&nbsp;${contactBean.tel}</span><br>
-                <span>E-mail:&nbsp;<a href="mailto: ${contactBean.email}">${contactBean.email}</a></span>
+                <span class="text-primary">Address:</span>&nbsp;<span class="text-white">${contactBean.address}</span><br>
+                <span class="text-primary">Telephone:</span>&nbsp;<span class="text-white">${contactBean.tel}</span><br>
+                <span class="text-primary">E-mail:</span>&nbsp;<span class="text-white">${contactBean.email}</span>
             </p>
         </div>
     </section>

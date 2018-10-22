@@ -20,7 +20,7 @@ public class ContactPageServiceImpl implements ContactPageService{
 		contactBean.setDirectLargeMapUrl(contactPageDAO.getValue("DIRECT_LARGE_MAP_URL"));
 		contactBean.setDirectUrl(contactPageDAO.getValue("DIRECT_URL"));
 		contactBean.setEmail(contactPageDAO.getValue("EMAIL"));
-		contactBean.setLatitude(contactPageDAO.getValue("LAGITUDE"));
+		contactBean.setLatitude(contactPageDAO.getValue("LATITUDE"));
 		contactBean.setLongitude(contactPageDAO.getValue("LONGITUDE"));
 		contactBean.setLocationInfo(contactPageDAO.getValue("COMPANY_INFO"));
 		contactBean.setLocationName(contactPageDAO.getValue("COMPANY_NAME"));

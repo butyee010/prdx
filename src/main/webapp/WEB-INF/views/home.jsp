@@ -56,9 +56,9 @@
 
     <section class="row content-padding content-margin-top">
         <div class="col-sm-12 section-header text-center">
-            ${homeBean.headerRef1}
+            <h3><span class="text-primary">${homeBean.headerRef1}</span></h3>
         </div>
-        <div class="col-sm-12 text-center">
+        <div class="col-sm-12 text-center text-white">
             ${homeBean.contentRef1}
         </div>
     </section>
@@ -77,7 +77,7 @@
         <div class="col-sm-6">
             <h3 class="pb-1 mb-2 border-bottom"><span class="text-primary">${homeBean.headerRef3}</span></h3>
             <div class="mb-3">
-                <div>${homeBean.contentRef3}</div>
+                <div class="text-white">${homeBean.contentRef3}</div>
             </div>
         </div>
     </section>

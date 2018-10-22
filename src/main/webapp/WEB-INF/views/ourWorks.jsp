@@ -28,10 +28,10 @@
 							<img class="d-block w-100 img-radius" onclick="ourWorks.openSubOurWorks('${ourWorks.header}')" src="${ourWorks.imgPath}" alt="${ourWorks.imgName}">
 						</div>
 						<div class="content">
-							<label class="big-font">${ourWorks.header}</label>
+							<label class="big-font text-primary">${ourWorks.header}</label>
 						</div>
 						<div class="normal-font padding-left">
-							<p>${ourWorks.content}</p>
+							<p class="text-white">${ourWorks.content}</p>
 						</div>
 					</div>
 				</c:forEach>
