@@ -19,8 +19,8 @@
 		            <img class="d-block w-100 img-radius" src="${itemSub.value.imgPath}" alt="${itemSub.value.imgName}" onclick="ourWorks.openJssorSubOurWorks('${ourWorksSubBean.subOurWorksName}' ,'${itemSub.key}')">
 		        </div>
 		        <div class="col-sm-8 block-content">
-		            <label class="label-header">${itemSub.value.topicName}</label>
-		            <p>${itemSub.value.content}</p>
+		            <label class="label-header text-primary">${itemSub.value.topicName}</label>
+		            <p class="text-white">${itemSub.value.content}</p>
 		        </div>
 		    </section>
 		</c:forEach>
