@@ -10,11 +10,11 @@
             </div>
         </section>
         <section class="row content">
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <h3><label class="label-header text-primary">${aboutBean.contentHeader2}</label></h3>
                 <p class="text-white" style="font-size: 18px;">${aboutBean.contentDesc2}</p>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-7">
                 <h3><label class="label-header text-primary">${aboutBean.contentHeader3}</label></h3>
                 <p class="text-white" style="font-size: 18px;">${aboutBean.contentDesc3}</p>
             </div>
