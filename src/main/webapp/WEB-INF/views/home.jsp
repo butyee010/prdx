@@ -62,14 +62,13 @@
             ${homeBean.contentRef1}
         </div>
     </section>
-	<br><br>
+	
     <section class="row content-padding content-margin-top">
         <div class="col-sm-12">
             <img class="d-block w-100 img-radius" style="height: ${homeBean.imgHightSizeRef2};" src="${homeBean.imgPathRef2}" alt="${homeBean.imgNameRef2}">
         </div>
     </section>
-
-    <section class="row content">
+    <section class="row content content-margin-top">
         <div class="col-sm-6">
             <img class="d-block w-100 img-radius" src="${homeBean.imgPathRef3}"
                 alt="${homeBean.imgNameRef3}">
