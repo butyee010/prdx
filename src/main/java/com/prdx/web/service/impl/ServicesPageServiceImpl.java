@@ -37,11 +37,11 @@ public class ServicesPageServiceImpl implements ServicesPageService{
 		servicesBeanEvent.setImgPath(servicesPageDAO.getValue("SERVICE_IMAGE_EVENT"));
 		servicesBeanList.add(servicesBeanEvent);
 		
-		ServicesBean servicesBeanShelf = new ServicesBean();
+		/*ServicesBean servicesBeanShelf = new ServicesBean();
 		servicesBeanShelf.setHeader(servicesPageDAO.getValue("SERVICE_HEADER_SHELF"));
 		servicesBeanShelf.setContent(servicesPageDAO.getValue("SERVICE_CONTENT_SHELF"));
 		servicesBeanShelf.setImgPath(servicesPageDAO.getValue("SERVICE_IMAGE_SHELF"));
-		servicesBeanList.add(servicesBeanShelf);
+		servicesBeanList.add(servicesBeanShelf);*/
 		
 		ServicesBean servicesBeanApp = new ServicesBean();
 		servicesBeanApp.setHeader(servicesPageDAO.getValue("SERVICE_HEADER_APP"));

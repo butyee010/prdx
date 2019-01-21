@@ -30,9 +30,9 @@
 						<div class="content">
 							<label class="big-font text-primary">${ourWorks.header}</label>
 						</div>
-						<div class="normal-font padding-left">
+						<%-- <div class="normal-font padding-left">
 							<p class="text-white">${ourWorks.content}</p>
-						</div>
+						</div> --%>
 					</div>
 				</c:forEach>
 			</section>
