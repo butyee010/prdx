@@ -22,6 +22,7 @@
 <spring:url value="/resources/static" var="resources" />
 <html>
 <head>
+	<meta name="google-site-verification" content="JiGuvuNpjdvCh3ZtRx2ckS8dRLKE83qZml-IQMmXTYA" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
