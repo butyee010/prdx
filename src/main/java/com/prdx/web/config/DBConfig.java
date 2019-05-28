@@ -25,7 +25,7 @@ public class DBConfig {
 	private String packagesToScan = "com.prdx.web.bean.contact";
 	
 	//db config
-	private String dbURL = "jdbc:mysql://203.121.143.61:3306/PRDXDBA?autoReconnect=true&useSSL=false";
+	private String dbURL = "jdbc:mysql://103.30.124.135:3306/PRDXDBA?autoReconnect=true&useSSL=false";
 	private String driverClass = "com.mysql.jdbc.Driver";
 	private String username = "prdxdba";
 	private String password = "Prdxdba@1";
